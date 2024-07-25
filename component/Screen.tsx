@@ -13,7 +13,7 @@ import {fetchData, setData} from '../redux/action';
 
 const Screen = () => {
   const [text, setText] = useState('');
-  const newData = useSelector(state => state?.reducerSample?.newData);
+  const data = useSelector(state => state?.reducerSample?.data);
   const dispatch = useDispatch();
 
   const handleClick = () => {
