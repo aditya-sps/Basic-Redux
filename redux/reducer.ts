@@ -1,5 +1,5 @@
 const initialState = {
-  data: [],
+  data: null,
   newData: [],
 };
 
@@ -8,7 +8,13 @@ const reducerSample = (state = initialState, action) => {
     case 'SET_DATA':
       return {
         ...state,
-        data: [...state.data, action.payload],
+        data: action.payload,
+      };
+
+    case 'CLEAR_DATA':
+      return {
+        data: null,
+        newData: [],
       };
 
     case 'SET_NEW_DATA':

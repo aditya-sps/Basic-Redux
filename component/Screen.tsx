@@ -8,38 +8,34 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {fetchData, setData} from '../redux/action';
+import {clearData, fetchData, setData} from '../redux/action';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 //   import {fetchData, setData} from '../redux/action';
 
-const Screen = () => {
+const Screen1 = () => {
   const [text, setText] = useState('');
   const data = useSelector(state => state?.reducerSample?.data);
   const dispatch = useDispatch();
 
-  const handleClick = () => {
-    dispatch(setData(text));
-    setText('');
-    // dispatch(fetchData());
+  const handleLogout = () => {
+    dispatch(clearData());
+    AsyncStorage.removeItem('userData');
   };
 
   return (
-    <SafeAreaView style={{flex: 1, paddingHorizontal: 20}}>
-      <TextInput
-        style={{
-          height: 40,
-          borderColor: 'black',
-          borderWidth: 1,
-          marginVertical: 20,
-          borderRadius: 10,
-        }}
-        value={text}
-        onChangeText={value => setText(value)}
-      />
-      <Button title="Add" onPress={handleClick} />
+    <SafeAreaView
+      style={{
+        flex: 1,
+        paddingHorizontal: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}>
+      <Text>Screen1</Text>
+      <Button title="Logout" onPress={handleLogout} />
     </SafeAreaView>
   );
 };
 
-export default Screen;
+export default Screen1;
 
 const styles = StyleSheet.create({});

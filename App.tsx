@@ -7,14 +7,16 @@
 
 import React, {useState} from 'react';
 import {Button, SafeAreaView, StyleSheet, Text, TextInput} from 'react-native';
-import Screen from './component/Screen';
 import {Provider} from 'react-redux';
 import store from './redux/store';
+import {NavigationContainer} from '@react-navigation/native';
+import 'react-native-gesture-handler';
+import Navigation from './navigation';
 
 function App() {
   return (
     <Provider store={store}>
-      <Screen />
+      <Navigation />
     </Provider>
   );
 }

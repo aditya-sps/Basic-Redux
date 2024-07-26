@@ -20,6 +20,10 @@ export const setData = data => ({
   payload: data,
 });
 
+export const clearData = () => ({
+  type: 'CLEAR_DATA',
+});
+
 export const setNewData = data => ({
   type: 'SET_NEW_DATA',
   payload: data,
